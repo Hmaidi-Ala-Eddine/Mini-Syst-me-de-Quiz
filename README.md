@@ -1,3 +1,59 @@
+POST http://localhost:3000/auth/signup
+{
+  "name": "John",
+  "email": "john@example.com",
+  "password": "123456"
+}
+POST http://localhost:3000/auth/login
+{
+  "email": "john@example.com",
+  "password": "123456"
+}
+Copy the returned access_token.
+
+Authorization: Bearer <paste-your-token-here>
+
+POST /quizzes
+{
+  "title": "Basic Science Quiz",
+  "subject": "Science",
+  "questions": [
+    {
+      "content": "What gas do plants absorb from the atmosphere?",
+      "choices": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+      "correctAnswer": "Carbon Dioxide"
+    },
+    {
+      "content": "How many planets are in the Solar System?",
+      "choices": ["7", "8", "9", "10"],
+      "correctAnswer": "8"
+    },
+    {
+      "content": "Which part of the body pumps blood?",
+      "choices": ["Lungs", "Brain", "Heart", "Liver"],
+      "correctAnswer": "Heart"
+    }
+  ]
+}
+http://localhost:3000/quizzes/4/submit
+
+{
+  "answers": [
+    {
+      "questionId": 6,
+      "givenAnswer": "Carbon Dioxide"
+    },
+    {
+      "questionId": 7,
+      "givenAnswer": "8"
+    },
+    {
+      "questionId": 8,
+      "givenAnswer": "Heart"
+    }
+  ]
+}
+http://localhost:3000/me/history
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
