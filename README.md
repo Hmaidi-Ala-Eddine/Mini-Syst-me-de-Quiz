@@ -9,15 +9,15 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "name": "John",
-  "email": "john@example.com",
+  "name": "ala",
+  "email": "ala@gmail.com",
   "password": "123456"
 }
 POST http://localhost:3000/auth/login
 Content-Type: application/json
 
 {
-  "email": "john@example.com",
+  "email": "ala@gmail.com",
   "password": "123456"
 }
 Authorization: Bearer <your-access-token>
