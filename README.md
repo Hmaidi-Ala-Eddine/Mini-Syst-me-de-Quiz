@@ -1,19 +1,30 @@
+# API Usage
+http://localhost:3000/api
+## Authentication
+
+### Signup
+
+```http
 POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
 {
   "name": "John",
   "email": "john@example.com",
   "password": "123456"
 }
 POST http://localhost:3000/auth/login
+Content-Type: application/json
+
 {
   "email": "john@example.com",
   "password": "123456"
 }
-Copy the returned access_token.
+Authorization: Bearer <your-access-token>
+POST http://localhost:3000/quizzes
+Authorization: Bearer <your-access-token>
+Content-Type: application/json
 
-Authorization: Bearer <paste-your-token-here>
-
-POST /quizzes
 {
   "title": "Basic Science Quiz",
   "subject": "Science",
@@ -35,7 +46,9 @@ POST /quizzes
     }
   ]
 }
-http://localhost:3000/quizzes/4/submit
+POST http://localhost:3000/quizzes/4/submit
+Authorization: Bearer <your-access-token>
+Content-Type: application/json
 
 {
   "answers": [
@@ -53,7 +66,9 @@ http://localhost:3000/quizzes/4/submit
     }
   ]
 }
-http://localhost:3000/me/history
+GET http://localhost:3000/me/history
+Authorization: Bearer <your-access-token>
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
